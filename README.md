@@ -126,6 +126,31 @@ You can install this via `npm`:
 
 It's recommended to create a daily job that generates the necessary data to be served by the web server.
 
+## Configuration
+
+Every configuration can be done directly in a `settings.json` file that should be created (if not yet present) in the application's root folder. Here's a template of such a settings file:
+
+	{
+		"applicationKey":	"--insert application key--",
+		"userToken":		"--insert user token--",
+		"boardId":			"--insert board id--",
+		"port":             8008,
+		"template":			"default.template",
+		"home_template":	"home.template",
+		"html_title":		"Trello burndown chart generator",
+		"html_header":		"Burndown for sprint "
+	}
+
+The possible configurations available are the following:
+
+	applicationKey		Insert your obtained application key from Trello to get access to it
+	userToken			Define your user token you will receive when obtaining an application ey
+	boardId				Define the id of the board you want to search for release notes
+	port 				The port the web server is listening, default is 8008
+	template			Defines the name of the template to be used (will be searched in `templates` subfolder)
+	html_title			Title of the generated page
+	html_header			Header of the generated page (H1)
+
 ### Obtain a Trello token
 
 First, log in to Trello and open [Generate API Keys](https://trello.com/1/appKey/generate "Generate API Keys"). You will receive an key to use in the next step.
@@ -135,16 +160,6 @@ Second, call https://trello.com/1/authorize?key=YOUR_KEY&name=trello-releasenote
 > For further information visit: [Getting a Token from a User](https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user "Getting a Token from a User")
 
 Store the key from the first action in setting `applicationKey` of `settings.json` and the token received from the second step in `userToken`. To connect to the board of your choice, copy the board id from your web browser.
-
-There are some settings you can set up in `settings.json`:
-
-	applicationKey		Insert your obtained application key from Trello to get access to it
-	userToken			Define your user token you will receive when obtaining an application ey
-	boardId				Define the id of the board you want to search for release notes
-	port 				The port the web server is listening, default is 8008
-	template			Defines the name of the template to be used (will be searched in `templates` subfolder)
-	html_title			Title of the generated page
-	html_header			Header of the generated page (H1)
 
 ## Planned features
 
