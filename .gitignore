@@ -17,4 +17,4 @@ npm-debug.log
 # app specific ignores
 config/
 export/
-settings.json # to not include user api keys etc..
+settings.json
